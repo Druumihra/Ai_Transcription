@@ -1,2 +1,4 @@
+# A small program to transcribe and translate a video to Catalan, English and Spanish.
+
 ## Requirements
-### FFMPEG, Imagemagick
+### FFMPEG, Imagemagick, Python 3.8

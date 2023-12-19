@@ -2,9 +2,10 @@ import whisper
 import os
 from datetime import timedelta
 
-def whisperSTT(audio):
+def whisperSTT(audio, language):
     model = whisper.load_model("large-v3")
-    result = model.transcribe(audio, language="ca")
+    print(language)
+    result = model.transcribe(audio, language=language)
     print(result['text'])
     segments = result["segments"]
 
