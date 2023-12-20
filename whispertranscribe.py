@@ -4,9 +4,7 @@ from datetime import timedelta
 
 def whisperSTT(audio, language):
     model = whisper.load_model("large-v3")
-    print(language)
     result = model.transcribe(audio, language=language)
-    print(result['text'])
     segments = result["segments"]
 
     for segment in segments:
@@ -15,7 +13,7 @@ def whisperSTT(audio, language):
         text = segment['text']
         id = segment['id']+1
         segment = f"{id}\n{startime} ---> {endtime}\n {text[1:] if text[0] is ' ' else text}\n\n"
-        srtfilename = os.path.join("Files", "test.srt")
+        srtfilename = os.path.join("Files", f"{language}-transcribtion.srt")
         with open(srtfilename, 'a', encoding='utf-8') as srtFile:
             srtFile.write(segment)
     return srtfilename
