@@ -13,7 +13,7 @@ def whisperSTT(audio, language):
         text = segment['text']
         id = segment['id']+1
         segment = f"{id}\n{startime} ---> {endtime}\n {text[1:] if text[0] is ' ' else text}\n\n"
-        srtfilename = os.path.join("Files", f"{language}-transcribtion.srt")
+        srtfilename = os.path.join("Files", f"{language}-transcription.srt")
         with open(srtfilename, 'a', encoding='utf-8') as srtFile:
             srtFile.write(segment)
     return srtfilename

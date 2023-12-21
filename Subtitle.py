@@ -8,5 +8,5 @@ def addSubtitle(srtfile, videofile, language):
     video = VideoFileClip(videofile)
     result = CompositeVideoClip([video, subtitles.set_pos(('center', 950))])
 
-    result.write_videofile(f"{language}-subbedFile.mp4", fps=video.fps, temp_audiofile="temp-audio.m4a", remove_temp=True, codec="libx264", audio_codec="aac")
-
+    result.write_videofile(f"Files/{language}-subbedFile.mp4", fps=video.fps, temp_audiofile="temp-audio.m4a", remove_temp=True, codec="libx264", audio_codec="aac")
+    print(f"Video subtitled in {language}")
